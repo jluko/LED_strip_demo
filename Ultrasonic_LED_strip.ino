@@ -1,5 +1,5 @@
 /*
-** Title: LED_strip_demo
+** Title: Ultrasonic_LED_strip
 ** Purpose: To control a strip of NeoPixels by mapping the distance to your hand (measured by an HC-SR04 ultrasonic sensor)
 **          to the number of LEDs turned on in the strip.
 ** Usage:
