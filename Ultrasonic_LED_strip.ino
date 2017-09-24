@@ -1,6 +1,13 @@
-//Script for reading ultrasonic proximity sensor readings and triggering a strip of
-//ws2812b LEDs to light up following the distance readings.
+/*
+** Title: LED_strip_demo
+** Purpose: To control a strip of NeoPixels by mapping the distance to your hand (measured by an HC-SR04 ultrasonic sensor)
+**          to the number of LEDs turned on in the strip.
+** Usage:
+**
+** Created by: Justas Lukosiunas
+*/
 
+//Include required libraries
 #include <Adafruit_NeoPixel.h>
 
 //-----------------
@@ -17,9 +24,9 @@ int dist_read_array[numb_of_readings];
 int median_distance;
 
 //LEDs
-#define NUM_OF_PIXELS_IN_STRIP 10
-#define LED_PIN_NUM 2  
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_OF_PIXELS_IN_STRIP, LED_PIN_NUM);
+#define NUM_OF_PIXELS 10
+#define LED_PIN 2  
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_OF_PIXELS, LED_PIN);
 int controllable_distance = 40; // in cm
 int ultrasonic_deadspace = 5; //in cm
 uint32_t color_on = strip.Color(255, 255, 255);
@@ -86,7 +93,7 @@ void loop() {
   {  
     leds_off_prop = float(median_distance)/float(controllable_distance);
 
-    led_counter = (1-leds_off_prop)*NUM_OF_PIXELS_IN_STRIP;
+    led_counter = (1-leds_off_prop)*NUM_OF_PIXELS;
   }
   else
   {
@@ -95,7 +102,7 @@ void loop() {
   }
 
     //Loop that goes through all LEDs and turns them on/off depending on distance
-    for(int i=0;i<NUM_OF_PIXELS_IN_STRIP;i++){
+    for(int i=0;i<NUM_OF_PIXELS;i++){
       if(i<led_counter)
         { 
           
