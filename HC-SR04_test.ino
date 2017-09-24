@@ -1,41 +1,42 @@
 /*
-* Ultrasonic Sensor HC-SR04 and Arduino Tutorial
-*
-* Crated by Dejan Nedelkovski,
-* www.HowToMechatronics.com
-*
+** Title: Ultrasonic sensor HC-SR04 Arduino test code.
+** Purpose: Prints the distance to an object (to the serial monitor) every 100ms.
+** Usage guide: Open serial monitor
+**
+** Created by Kasper Buckbee
 */
-// defines pins numbers
+
+//define digital pins on Arduino to use for hc-sr04 module
 const int trigPin = 9;
 const int echoPin = 10;
                 
-// defines variables
-long duration;
+//define variables
+long pulse_duration;
 int distance;
 
 void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600); // Starts the serial communication
+  pinMode(trigPin, OUTPUT); // set trigPin as an Output
+  pinMode(echoPin, INPUT); // set echoPin as an Input
+  Serial.begin(9600); // start serial communication at 9600 baud (bits/s)
 }
 
 void loop() {
-  // Clears the trigPin
+  //Initialise trigPin LOW before sending trigger command
   digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
+  delayMicroseconds(5);
   
-  // Sets the trigPin on HIGH state for 10 micro seconds
+  //Send trigger signal by setting trigPin high for 10us
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
   
-  // Reads the echoPin, returns the sound wave travel time in         microseconds
+  //Read the echoPin response - pulseIn returns the sound wave travel time in microseconds
   duration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
-  distance= duration*0.034/2;              
+  //Calculate the distance to object
+  distance= duration*0.034/2; //Speed of sound = 0.034 cm/us  
   
-  // Prints the distance on the Serial Monitor
+  //Print the calculated distance to the Serial monitor
   Serial.print("Distance: ");
-  Serial.println(distance);
-  delay(100);
+  Serial.println(distance); //.println adds newline after each reading
+  delay(100); //delay 100ms between readings
 }
