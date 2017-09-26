@@ -7,8 +7,8 @@
 */
 
 //define digital pins on Arduino to use for hc-sr04 module
-const int trigPin = 9;
-const int echoPin = 10;
+const int trigPin = //Blank: ________________________//
+const int echoPin = //Blank: ________________________//
                 
 //define variables
 long pulse_duration;
@@ -33,7 +33,7 @@ void loop() {
   //Read the echoPin response - pulseIn returns the sound wave travel time in microseconds
   duration = pulseIn(echoPin, HIGH);
   //Calculate the distance to object
-  distance= duration*0.034/2; //Speed of sound = 0.034 cm/us  
+  distance= //Blank: ________________________//
   
   //Print the calculated distance to the Serial monitor
   Serial.print("Distance: ");
