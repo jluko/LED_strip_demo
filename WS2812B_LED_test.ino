@@ -43,8 +43,8 @@
 #include <Adafruit_NeoPixel.h>
 
 //Define constant parameters
-#define NUM_OF_PIXELS 10
-#define LED_PIN 2    
+#define NUM_OF_PIXELS //Blank: ________________________//
+#define LED_PIN //Blank: ________________________//  
 
 //Define LED strip to be a NeoPixel strip
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_OF_PIXELS, LED_PIN);
@@ -59,15 +59,15 @@ void loop() {
 
   //Set 10 pixels to different colours
   strip.setPixelColor(0, 255, 0, 255);
-  strip.setPixelColor(1, 255, 0, 255);
-  strip.setPixelColor(2, 255, 0, 255);
-  strip.setPixelColor(3, 255, 0, 255);
-  strip.setPixelColor(4, 255, 0, 255);
-  strip.setPixelColor(5, 255, 0, 255);
-  strip.setPixelColor(6, 255, 0, 255);
-  strip.setPixelColor(7, 255, 0, 255);
-  strip.setPixelColor(8, 255, 0, 255);
-  strip.setPixelColor(9, 255, 0, 255);
+  //Blank: ________________________//
+  //Blank: ________________________//
+  //Blank: ________________________//
+  //Blank: ________________________//
+  //Blank: ________________________//
+  //Blank: ________________________//
+  //Blank: ________________________//
+  //Blank: ________________________//
+  //Blank: ________________________//
  
   //Push the above values to the pixels
   strip.show();
